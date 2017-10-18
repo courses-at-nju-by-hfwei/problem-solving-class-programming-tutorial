@@ -1,0 +1,177 @@
+\section{IO}
+
+%%%%%%%%%%%%%%%
+\begin{frame}{IO 基本概念}
+  IO 模型：字符流 (character stream)
+  \begin{itemize}
+    \item a sequence of characters divided into lines
+    \item each line consists of $\ge 0$ characters followed by a newline character 
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{Standard Input and Output: 以 \texttt{getchar}, \texttt{putchar} 为例}
+  \centerline{代码示例： \texttt{file-copy.c}}
+
+  \vspace{0.50cm}
+  \pause
+  \href{http://www.cplusplus.com/reference/cstdio/EOF/}{EOF} (文件结束符)：
+  \begin{itemize}
+    \item EOF 不单单指示``文件''的结束，而是指示字符流的结束
+    \item EOF 不同于 (行结束)
+    \item EOF 不是实际字符, 而是一个宏定义 (\texttt{!= EOF})
+    \item EOF 是整型数 (\texttt{int c}) 
+  \end{itemize}
+
+  \pause
+  \vspace{0.50cm}
+  \centerline{代码运行：\texttt{./file-copy}}
+
+  \pause
+  \begin{columns}[c]
+    \column{0.45\textwidth}
+      \begin{description}[Windows]
+	\item[Windows] \texttt{Ctrl + Z}
+	\item[Linux] \texttt{Ctrl + D}
+	\item[Mac] \texttt{Ctrl + D}
+      \end{description}
+    \column{0.45\textwidth}
+      请仔细观察并思考：
+      \begin{enumerate}
+	\item \texttt{Enter} 的作用
+	\item EOF 的作用
+      \end{enumerate}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{IO on OJ: input redirection (输入重定向)}
+  \centerline{代码运行：\texttt{./file-copy <file-copy-file}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{格式化输出：\texttt{printf}}
+  \centerline{\href{http://www.cplusplus.com/reference/cstdio/printf/}{\texttt{int printf(const char* format, ...);}}}
+
+  \vspace{0.50cm}
+  \centerline{format: \texttt{\%[flags][width][.precision][length]specifier}}
+
+  \vspace{0.60cm}
+  \pause
+  \begin{columns}
+    \column{0.50\textwidth}
+      常用的输出格式：
+      \begin{description}[Decimal integer]
+	\item[Decimal integer] \texttt{\%d, \%ld}
+	\item[Decimal float] \texttt{\%f, \%.2f}
+	\item[Character] \texttt{\%c}
+	\item[String] \texttt{\%s, \%.5s}
+      \end{description}
+    \column{0.50\textwidth}
+      \centerline{代码示例：\texttt{printf.c}}
+  \end{columns}
+
+  \vspace{0.30cm}
+  \centerline{使用 \texttt{printf(''\%s'', s)}, 不要使用 \texttt{printf(s)}。}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{其它输出函数：\texttt{fprintf}, \texttt{sprintf}}
+  \centerline{\href{http://www.cplusplus.com/reference/cstdio/fprintf/}
+  {\texttt{int fprintf(FILE *stream, const char *format, ...);}}}
+
+  \vspace{0.50cm}
+  \centerline{\href{http://www.cplusplus.com/reference/cstdio/sprintf/}
+  {\texttt{int sprintf(char *str, const char *format, ...);}}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{格式化输入：\texttt{scanf}}
+  \centerline{\href{http://www.cplusplus.com/reference/cstdio/scanf/}
+  {\texttt{int scanf(const char *format, ...)}}}
+
+  \vspace{0.30cm}
+  \begin{enumerate}
+    \item Read characters from the standard input
+    \item Interpret according to \texttt{format}
+    \item Store in arguments (pointers)
+  \end{enumerate}
+
+  \vspace{0.30cm}
+  \pause
+  \texttt{format}:
+  \begin{itemize}
+    \item Whitespace character
+    \item Non-whitespace character, except format specifier (\%)
+    \item Format specifiers: \texttt{\%[*][width][length]specifier}
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{格式化输入：\texttt{scanf}}
+  \centerline{代码示例：\texttt{scanf.c}}
+  % \begin{center}
+  %   \texttt{scanf(''\%d \%s \%d'', \&day, \&month\_name, \&year)} \\[6pt]
+  %   \texttt{scanf(''\%d, \%s, \%d'', \&day, \&month\_name, \&year)} \\[6pt]
+  %   \texttt{scanf(''\%d/\%s/\%d'', \&day, \&month\_name, \&year)}
+  % \end{center}
+
+  \vspace{0.60cm}
+  Return value:
+  \begin{description}
+    \item[Success] \# of items of the argument list successfully filled
+      \begin{itemize}
+	\item $\le$ \# of arguments
+      \end{itemize}
+    \item[Failure] EOF
+      \begin{itemize}
+	\item reading error (\texttt{ferror}), end-of-file (\texttt{feof})
+      \end{itemize}
+  \end{description}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{其它输入函数: \texttt{fscanf}, \texttt{sscanf}}
+  \begin{center}
+    \href{}{} 
+
+    \href{}{}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{Line Input and Output}
+  \begin{center}
+    \href{}{\text{}}
+
+    \href{}{\text{gets}} deprecated
+
+    \href{http://www.cplusplus.com/reference/cstdio/puts/}
+    {\texttt{int puts(const char *str);}}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{OJ 练习之 IO}
+  \centerline{OJ 示例：1.1.1}
+
+  \vspace{0.80cm}
+  \pause
+  \centerline{1.1.2 $\sim$ 1.1.6}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{OJ 常见输入模式}
+  \centerline{IO 练习之总结与分享}
+\end{frame}
+%%%%%%%%%%%%%%%

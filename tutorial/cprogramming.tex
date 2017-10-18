@@ -1,0 +1,30 @@
+\documentclass[]{beamer}
+
+\input{preamble}
+
+%%%%%%%%%%
+\title[\titletext]{\titletext}
+\subtitle{}
+
+\author[Hengfeng Wei]{\large 魏恒峰}
+% \titlegraphic{\includegraphics[height = 1.8cm]{figs/20171016-logic-qrcode.png}}
+\institute{hfwei@nju.edu.cn}
+% from 2017年10月18日 
+\date{\zhtoday}
+
+\AtBeginSection[]{
+  \begin{frame}[noframenumbering, plain]
+    \frametitle{\titletext}
+    \tableofcontents[currentsection, sectionstyle=show/shaded, subsectionstyle=show/show/hide]
+  \end{frame}
+}
+%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\input{sections/overview}
+\input{sections/io}
+
+\end{document}
+%%%%%%%%%%
