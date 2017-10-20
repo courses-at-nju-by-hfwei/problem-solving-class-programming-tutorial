@@ -7,15 +7,34 @@
     \item a sequence of characters divided into lines
     \item each line consists of $\ge 0$ characters followed by a newline character 
   \end{itemize}
+
+  \vspace{0.80cm}
+  \centerline{\texttt{\#include <stdio.h>}}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
-\begin{frame}{Standard Input and Output: 以 \texttt{getchar}, \texttt{putchar} 为例}
-  \centerline{代码示例： \texttt{file-copy.c}}
+\begin{frame}{字符输入输出: \texttt{getchar}, \texttt{putchar}}
+  \begin{center}
+    \href{http://www.cplusplus.com/reference/cstdio/getchar/}{\texttt{int \blue{getchar}(void);}} \\[8pt]
+    \href{http://www.cplusplus.com/reference/cstdio/putchar/}{\texttt{int \blue{putchar}(int character);}}
+  \end{center}
 
   \vspace{0.50cm}
+  \centerline{代码示例： \texttt{file-copy.c}}
+
   \pause
+  \vspace{0.50cm}
+  \centerline{代码运行：\texttt{gcc file-copy.c -o file-copy \;\;  ./file-copy}}
+
+  \pause
+  \vspace{0.80cm}
+  \centerline{代码运行：\texttt{./file-copy <file-copy-file} (OJ 测试用例)}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{EOF}
   \href{http://www.cplusplus.com/reference/cstdio/EOF/}{EOF} (文件结束符)：由宏定义的整型数
   \begin{itemize}
     \item EOF 是整型数 (\texttt{int c}; \texttt{!= EOF})
@@ -23,38 +42,17 @@
     \item EOF 不单单指示``文件''的结束, 而是指示字符流的结束
   \end{itemize}
 
-  \pause
-  \vspace{0.50cm}
-  \centerline{代码运行：\texttt{./file-copy}}
-
-  \pause
-  \vspace{0.30cm}
-  \begin{columns}[c]
-    \column{0.45\textwidth}
-      \begin{description}[Windows]
-	\item[Windows] \texttt{Ctrl + Z}
-	\item[Linux] \texttt{Ctrl + D}
-	\item[Mac] \texttt{Ctrl + D}
-      \end{description}
-    \column{0.45\textwidth}
-      请仔细观察并思考：
-      \begin{enumerate}
-	\item \texttt{Enter} 的作用
-	\item EOF 的作用
-      \end{enumerate}
-  \end{columns}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{IO on OJ: input redirection (输入重定向)}
-  \centerline{代码运行：\texttt{./file-copy <file-copy-file}}
+  \begin{description}[Windows]
+    \item[Windows] \texttt{Ctrl + Z}
+    \item[Linux] \texttt{Ctrl + D}
+    \item[Mac] \texttt{Ctrl + D}
+  \end{description}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{格式化输出：\texttt{printf}}
-  \centerline{\href{http://www.cplusplus.com/reference/cstdio/printf/}{\texttt{int printf(const char* format, ...);}}}
+  \centerline{\href{http://www.cplusplus.com/reference/cstdio/printf/}{\texttt{int \blue{printf}(const char* format, ...);}}}
 
   \vspace{0.50cm}
   \centerline{format: \texttt{\%[flags][width][.precision][length]specifier}}
@@ -80,13 +78,13 @@
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
-\begin{frame}{其它输出函数：\texttt{fprintf}, \texttt{sprintf}}
+\begin{frame}{其它格式化输出函数：\texttt{fprintf}, \texttt{sprintf}}
   \begin{center}
     \href{http://www.cplusplus.com/reference/cstdio/fprintf/}
-    {\texttt{int fprintf(FILE *stream, const char *format, ...);}} \\[0.50cm]
+    {\texttt{int \blue{fprintf}(FILE *stream, const char *format, ...);}} \\[0.50cm]
 
     \href{http://www.cplusplus.com/reference/cstdio/sprintf/}
-    {\texttt{int sprintf(char *str, const char *format, ...);}}
+    {\texttt{int \blue{sprintf}(char *str, const char *format, ...);}}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%
@@ -94,7 +92,7 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{格式化输入：\texttt{scanf}}
   \centerline{\href{http://www.cplusplus.com/reference/cstdio/scanf/}
-  {\texttt{int scanf(const char *format, ...)}}}
+  {\texttt{int \blue{scanf}(const char *format, ...)}}}
 
   \vspace{0.30cm}
   \begin{enumerate}
@@ -134,27 +132,27 @@
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
-\begin{frame}{其它输入函数: \texttt{fscanf}, \texttt{sscanf}}
+\begin{frame}{其它格式化输入函数: \texttt{fscanf}, \texttt{sscanf}}
   \begin{center}
     \href{http://www.cplusplus.com/reference/cstdio/fscanf/}
-    {\texttt{int fscanf(FILE *stream, const char *format, ...);}} \\[0.50cm]
+    {\texttt{int \blue{fscanf}(FILE *stream, const char *format, ...);}} \\[0.50cm]
 
     \href{http://www.cplusplus.com/reference/cstdio/sscanf/}
-    {\texttt{int sscanf(const char *s, const char *format, ...);}}
+    {\texttt{int \blue{sscanf}(const char *s, const char *format, ...);}}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
-\begin{frame}{Line Input and Output}
+\begin{frame}{行输入输出}
   \begin{center}
     \href{http://www.cplusplus.com/reference/cstdio/fgets/}
-    {\texttt{char *fgets(char *str, int num, FILE *stream);}}  \\[0.30cm]
+    {\texttt{char *\blue{fgets}(char *str, int num, FILE *stream);}}  \\[0.30cm]
 
-    \href{http://www.cplusplus.com/reference/cstdio/gets/}{\texttt{char *gets(char *str);}}  \\[0.50cm]
+    \href{http://www.cplusplus.com/reference/cstdio/gets/}{\texttt{\textcolor{gray}{char *gets(char *str);}}}  \\[0.50cm]
 
     \href{http://www.cplusplus.com/reference/cstdio/puts/}
-    {\texttt{int puts(const char *str);}}
+    {\texttt{int \blue{puts}(const char *str);}}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%
