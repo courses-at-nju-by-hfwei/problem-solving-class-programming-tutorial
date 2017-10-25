@@ -1,0 +1,32 @@
+\documentclass[]{beamer}
+
+\input{preamble}
+
+%%%%%%%%%%
+\title[\titletext]{\titletext}
+\subtitle{The Josephus Puzzle}
+
+\author[Hengfeng Wei]{\large 魏恒峰}
+% \titlegraphic{\includegraphics[height = 1.8cm]{figs/20171016-logic-qrcode.png}}
+\institute{hfwei@nju.edu.cn}
+\date{2017年10月27日}
+
+\AtBeginSection[]{
+  \begin{frame}[noframenumbering, plain]
+    \frametitle{\titletext}
+    \tableofcontents[currentsection, sectionstyle=show/shaded, subsectionstyle=show/show/hide]
+  \end{frame}
+}
+%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\input{parts/josephus-puzzle}
+\input{parts/solving-josephus}
+\input{parts/function}
+\input{parts/control-flow}
+\input{parts/array}
+
+\end{document}
+%%%%%%%%%%

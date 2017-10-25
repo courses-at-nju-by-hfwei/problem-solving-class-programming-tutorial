@@ -1,0 +1,62 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE Functions}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Prototype and Definition}
+  \begin{lstlisting}[style = Cstyle]
+    int solve_josephus(int n);
+  \end{lstlisting}
+
+  \vspace{0.20cm}
+  \begin{lstlisting}[style = Cstyle]
+    int main(void) {
+      ...
+      // call the function
+      int survivor = solve_josephus(int n);
+      ...
+    }
+  \end{lstlisting}
+
+  \vspace{0.20cm}
+  \begin{lstlisting}[style = Cstyle]
+    int solve_josephus(int n) {
+    }
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Variables and Scopes}
+  Variables:
+  \begin{enumerate}
+    \item external variables
+    \item automatic variables
+    \item parameters
+  \end{enumerate}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Pass by Value}
+  \begin{lstlisting}[style = Cstyle]
+    void swap(int a, int b) {
+      int temp = a;
+      a = b;
+      b = tmp;
+    }
+  \end{lstlisting}
+
+  \vspace{0.40cm}
+  \pause
+  \begin{lstlisting}[style = Cstyle]
+    void swap(int *a, int *b) {
+      int temp = *a;
+      *a = *b;
+      *b = tmp;
+    }
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
