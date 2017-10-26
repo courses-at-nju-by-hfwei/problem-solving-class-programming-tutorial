@@ -5,32 +5,59 @@
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
-\begin{frame}{\texttt{if}}
-  
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\texttt{switch}}
+\begin{frame}[fragile]{\texttt{if; switch, case}}
+  \begin{columns}
+    \column{0.45\textwidth}
+      \begin{lstlisting}[style = Cstyle]
+  if (condition A) {
+    ...
+  } else if (condition B) {
+    ...
+  } else { // $\lnot A \lor \lnot B$
+    ...
+  }
+      \end{lstlisting}
+    \column{0.45\textwidth}
+      \begin{lstlisting}[style = Cstyle]
+  switch () {
+    case c1:
+      ...
+      break;
+    case c2:
+      ...
+      break;
+    default:
+  }
+      \end{lstlisting}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{\texttt{for}}
+  \begin{lstlisting}[style = Cstyle]
+    for (int i = 0; i < n; ++i) {
+      ...
+    }
+  \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{\texttt{while}}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\texttt{do while}}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\texttt{goto}}
+  \begin{columns}
+    \column{0.45\textwidth}
+      \begin{lstlisting}[style = Cstyle]
+  while (condition) {
+    ...
+  }
+      \end{lstlisting}
+    \column{0.45\textwidth}
+      \begin{lstlisting}[style = Cstyle]
+  do {
+    ...
+  } while (condition);
+      \end{lstlisting}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%

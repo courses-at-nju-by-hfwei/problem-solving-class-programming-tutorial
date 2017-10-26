@@ -11,6 +11,9 @@
   \end{lstlisting}
 
   \vspace{0.20cm}
+  \stylebox{Making function names verbs.}
+
+  \vspace{0.20cm}
   \begin{lstlisting}[style = Cstyle]
     int main(void) {
       ...
@@ -32,16 +35,22 @@
 \begin{frame}[fragile]{Variables and Scopes}
   Variables:
   \begin{enumerate}
-    \item external variables
-    \item automatic variables
-    \item parameters
+    \item Automatic variables
+    \item Parameters
+    \item External variables
   \end{enumerate}
+
+  \vspace{0.60cm}
+  \pause
+  \stylebox{You shall always initialize variables. Always. Every time.}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Pass by Value}
   \begin{lstlisting}[style = Cstyle]
+    swap(a, b);
+
     void swap(int a, int b) {
       int temp = a;
       a = b;
@@ -52,11 +61,17 @@
   \vspace{0.40cm}
   \pause
   \begin{lstlisting}[style = Cstyle]
+    swap(&a, &b);
+
     void swap(int *a, int *b) {
       int temp = *a;
       *a = *b;
       *b = tmp;
     }
   \end{lstlisting}
+
+  \vspace{0.30cm}
+  \pause
+  \stylebox{Place the * close to the variable name not pointer type.}
 \end{frame}
 %%%%%%%%%%%%%%%

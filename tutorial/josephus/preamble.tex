@@ -13,6 +13,8 @@
 
 \usepackage{amsmath, amsfonts, latexsym, mathtools}
 
+\usepackage{mdframed}
+
 \usepackage{hyperref}
 \usepackage{verbatim}
 \ExplSyntaxOn
@@ -49,6 +51,10 @@
 \newcommand{\bbox}[1]{\blue{\boxed{#1}}}
 \newcommand{\pbox}[1]{\purple{\boxed{#1}}}
 
+\newcommand{\stylebox}[1]{
+  \centerline{\pbox{\text{#1}}}
+}
+
 \usepackage{pifont}
 \usepackage{wasysym}
 
@@ -64,3 +70,9 @@
 }
 
 \newcommand{\titletext}{Control Flow, Function, and Array}
+
+\newcommand{\thankyou}{
+  \begin{frame}[noframenumbering]{}
+    \fignocaption{width = 0.50\textwidth}{figs/thankyou.png}
+  \end{frame}
+}
