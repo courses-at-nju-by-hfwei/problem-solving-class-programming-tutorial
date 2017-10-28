@@ -7,11 +7,15 @@
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Array Declaration and Initialization}
   \begin{lstlisting}[style = Cstyle]
-    int soldiers[5];
+    int soldiers[5];  // external/automatic
 
     int soldiers[] = {1, 2, 3, 4, 5};
 
     int soldiers[5] = {1, 2, 3};
+    
+    int soldiers[5] = {1};
+
+    int *soldiers = malloc(sizeof(int) * n);
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
@@ -29,11 +33,11 @@
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Array as Parameters}
   \begin{lstlisting}[style = Cstyle]
-    f(arr);
+    f(arr, size);
 
-    void f(int arr[]);
+    void f(int arr[], int size);
 
-    void f(int *arr);
+    void f(int *arr, int size);
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%

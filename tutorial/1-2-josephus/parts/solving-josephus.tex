@@ -63,7 +63,7 @@
   \begin{lstlisting}[style = Cstyle]
     int solve_josephus(int n) {
       // create $n$ soldiers with ids $1 \cdots n$
-      int soldiers[n];
+      int *soldiers = malloc(sizeof(int) * n);
       for (int i = 0; i < n; ++i) {
         soldiers[i] = i + 1;
       }
@@ -143,6 +143,11 @@
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Generalized Josephus Puzzle}
+  \begin{lstlisting}[style = Cstyle]
+    int solve_generalized_josephus(int soldiers[], int from_position, int interval);
+  \end{lstlisting}
+\end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
