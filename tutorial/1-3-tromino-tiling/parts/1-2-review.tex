@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE A Quick Review of Our Last Class}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Functions}
+  \begin{lstlisting}[style = Cstyle]
+    int solve_josephus(int n);
+  \end{lstlisting}
+
+  \vspace{0.20cm}
+  \begin{lstlisting}[style = Cstyle]
+    int main(void) {
+      ...
+      // call the function
+      int survivor = solve_josephus(int n);
+      ...
+    }
+  \end{lstlisting}
+
+  \vspace{0.20cm}
+  \begin{lstlisting}[style = Cstyle]
+    int solve_josephus(int n) {
+    }
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{1D Arrays}
+  \begin{lstlisting}[style = Cstyle]
+    int soldiers[5];
+    int soldiers[5] = {1, 2, 3, 4, 5};
+    int soldiers[5] = {1, 2, 3};
+    
+    // Correction: 1, 0, 0, 0, 0 (not 1, 1, 1, 1, 1)
+    int soldiers[5] = {1};
+
+    int *soldiers = malloc(sizeof(int) * n);
+
+    // VLA (Variable Length Array)
+    int soldiers[n];
+
+    // access
+    soldiers[2] $\qquad$ soldiers[i]
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%

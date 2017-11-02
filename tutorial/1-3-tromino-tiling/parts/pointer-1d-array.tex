@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE 1D Arrays}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{definition}[Name of an Array]
+    The \purple{value} of a \blue{variable of type array} is the \red{address} of \green{element zero} of the array.
+
+    \[
+      a \triangleq \&a[0]
+    \]
+  \end{definition}
+
+  \begin{lstlisting}[style = Cstyle]
+    int a[5];
+    a, $\quad$ &a[0] // what are they?
+    
+    int *pa = a; 
+    int *pa = &a[0];
+
+    &a // what is this?
+  \end{lstlisting}
+
+  \vspace{0.40cm}
+  \pause
+  \centerline{\teal{\texttt{array-1d.c}}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+    int a[5];
+
+    int *pa;
+  \end{lstlisting}
+
+  \begin{definition}[Equivalence between Accesses]
+    \[
+      pa[i] \triangleq \red{a[i]} \triangleq \ast (a + i)
+    \]
+  \end{definition}
+
+  \begin{lstlisting}[style = Cstyle]
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{quote}
+    When an array name is passed to a function,
+    what is passed is a \blue{pointer}, the location of the initial element.
+
+    \hfill --- K\&R
+  \end{quote}
+
+  \begin{lstlisting}[style = Cstyle]
+    void f(int a[5])
+    void f(int a[], int n);
+    void f(int *a, int n);
+
+    f(a, 5);
+    f(pa, 5);
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%

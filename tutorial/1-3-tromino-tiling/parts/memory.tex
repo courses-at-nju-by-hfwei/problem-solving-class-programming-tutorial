@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE Memory Model}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{definition}[Memory (K\&R)]
+    The memory is organized as a collection of consecutively \red{addressed} cells
+    that may be manipulated individually or in contiguous groups.
+  \end{definition}
+
+  \fignocaption{width = 0.60\textwidth}{figs/memory-cell}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.60\textwidth}{figs/program-memory-cplusplus}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{table}
+    \begin{tabular}{c|c|c}
+      \hline
+      Types & Scopes &Lifttimes \\ \hline
+      Static/Global & The entire file & The lifetime of the program \\ \hline
+      Automatic & & \\ \hline
+      Dynamic & & \\ \hline
+    \end{tabular}
+  \end{table}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \fignocaption{width = 0.50\textwidth}{figs/draw-stack-frame}
+
+  \vspace{-0.30cm}
+  \begin{lstlisting}[style = Cstyle]
+    void DrawSquare(int len) {
+      ...
+      DrawLine(len, dir);
+      ...
+    }
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
