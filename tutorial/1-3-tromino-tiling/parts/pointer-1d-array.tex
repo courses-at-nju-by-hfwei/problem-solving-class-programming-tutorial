@@ -14,6 +14,11 @@
     \]
   \end{definition}
 
+  \vspace{0.40cm}
+  \pause
+  \centerline{\teal{\texttt{array-1d.c}}}
+
+  \vspace{0.40cm}
   \begin{lstlisting}[style = Cstyle]
     int a[5];
     a, $\quad$ &a[0] // what are they?
@@ -23,10 +28,6 @@
 
     &a // what is this?
   \end{lstlisting}
-
-  \vspace{0.40cm}
-  \pause
-  \centerline{\teal{\texttt{array-1d.c}}}
 \end{frame}
 %%%%%%%%%%%%%%%
 
@@ -35,7 +36,7 @@
   \begin{lstlisting}[style = Cstyle]
     int a[5];
 
-    int *pa;
+    int *pa = a;
   \end{lstlisting}
 
   \begin{definition}[Equivalence between Accesses]
@@ -63,8 +64,17 @@
     void f(int a[], int n);
     void f(int *a, int n);
 
-    f(a, 5);
-    f(pa, 5);
+    f(a, 5); // int a[5] = {0};
+
+    f(pa, 5); // int *pa = a;
+  \end{lstlisting}
+
+  \begin{lstlisting}[style = Cstyle]
+    int a[n];
+    f(a, n);
+
+    int *pa = malloc( sizeof(int[n]) ); 
+    f(pa, n);
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%

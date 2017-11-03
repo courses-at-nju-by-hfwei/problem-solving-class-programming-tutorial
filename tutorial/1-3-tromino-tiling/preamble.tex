@@ -15,6 +15,10 @@
 
 \usepackage{mdframed}
 
+% for tables
+\usepackage{adjustbox}
+\newcommand{\innercell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
 \usepackage{hyperref}
 \usepackage{verbatim}
 \ExplSyntaxOn
@@ -56,9 +60,6 @@
   \centerline{\pbox{\text{#1}}}
 }
 
-% \usepackage{dingbat}
-% \usepackage{wasysym}
-
 \usepackage{pifont}
 % \newcommand{\cmark}{\green{\ding{51}}}
 % \newcommand{\xmark}{\red{\ding{55}}}
@@ -71,8 +72,8 @@
   \end{figure}
 }
 
-\newcommand{\titletext}{The Tromino Tiling Puzzle}
-\newcommand{\subtitletext}{Pointers, (2D-)Arrays, and Recursion}
+\newcommand{\titletext}{The Tromino Tiling Puzzle (I)}
+\newcommand{\subtitletext}{Pointers, (2D-)Arrays \textcolor{gray}{and Recursion}}
 
 \newcommand{\thankyou}{
   \begin{frame}[noframenumbering]{}

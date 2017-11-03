@@ -8,7 +8,7 @@
 \begin{frame}{}
   \begin{definition}[Memory (K\&R)]
     The memory is organized as a collection of consecutively \red{addressed} cells
-    that may be manipulated individually or in contiguous groups.
+    that may be manipulated \blue{individually or in contiguous groups}.
   \end{definition}
 
   \fignocaption{width = 0.60\textwidth}{figs/memory-cell}
@@ -18,20 +18,40 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \fignocaption{width = 0.60\textwidth}{figs/program-memory-cplusplus}
+  \vspace{-0.60cm}
+  \centerline{Program Memory}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
-\begin{frame}{}
+\begin{frame}[fragile]{}
   \begin{table}
-    \begin{tabular}{c|c|c}
+    \centering
+    \begin{adjustbox}{max width = \textwidth}
+    \begin{tabular}{c|c|c|c}
       \hline
-      Types & Scopes &Lifttimes \\ \hline
-      Static/Global & The entire file & The lifetime of the program \\ \hline
-      Automatic & & \\ \hline
-      Dynamic & & \\ \hline
+      {\bf Type} & {\bf Scope} & {\bf Lifttime} & {\bf Storage} \\ \hline \hline
+      \blue{\it Global} & The entire file & The lifetime of the \blue{program} & .BSS/.DATA \\ \hline
+      \blue{\it Static} & The \red{function} it is declared within & The lifetime of the \blue{program} & .BSS/.DATA \\ \hline
+      \blue{\it Automatic} & The \red{function} it is declared within & While the \blue{function} is executing & Stack \\ \hline
+      \blue{\it Dynamic} & \innercell{c}{Determined by the \red{pointers} \\ that reference this memory} & Until the memory is \blue{freed} & Heap \\ \hline
     \end{tabular}
+    \end{adjustbox}
   \end{table}
+
+  \begin{lstlisting}[style = Cstyle]
+  int a = 1;  // global (inited)
+  int b;      // global (uninited)
+
+  int f(void) {
+    int c = 0;          // automatic (local)
+    static int d = 0;   // static (inited)
+    d++;
+
+    int *p = malloc( sizeof(int) );  // dynamic
+    free(p);
+  }
+  \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
 

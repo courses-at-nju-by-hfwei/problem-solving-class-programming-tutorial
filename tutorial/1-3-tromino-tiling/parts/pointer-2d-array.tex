@@ -49,7 +49,7 @@
   \vspace{0.50cm}
   \pause
   \begin{lstlisting}[style = Cstyle]
-  a[i][j]
+  a[i][j]  // *((*(a + i)) + j)
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
@@ -58,25 +58,27 @@
 \begin{frame}[fragile]{}
   \begin{lstlisting}[style = Cstyle]
   void f(int a[3][5]);
-
   void f(int a[][5], int m); // m rows
-
   void f(int (*a)[5], int m);
 
-  f(a, 3);
-  f(pa, 3);
+  f(a, 3);  // int a[3][5];
+  f(pa, 3); // int (*pa)[5] = a;
   \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
 
-  \pause
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
   \begin{lstlisting}[style = Cstyle]
   void f(int m, int n, int a[m][n]);
-
   void f(int m, int n, int a[][n]);
-
   void f(int m, int n, int (*a)[n]);
 
-  f(3, 5, a);
-  f(3, 5, pa);
+  int a[m][n];
+  f(m, n, a);
+
+  int (*pa)[n] = malloc( sizeof(int[m][n]) );
+  f(m, n, pa);
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
