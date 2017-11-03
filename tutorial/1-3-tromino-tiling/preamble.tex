@@ -15,6 +15,10 @@
 
 \usepackage{mdframed}
 
+% for tables
+\usepackage{adjustbox}
+\newcommand{\innercell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
 \usepackage{hyperref}
 \usepackage{verbatim}
 \ExplSyntaxOn
@@ -44,6 +48,7 @@
 \newcommand{\green}[1]{\textcolor{green}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\purple}[1]{\textcolor{purple}{#1}}
+\newcommand{\teal}[1]{\textcolor{teal}{#1}}
 
 % colorded box
 \newcommand{\rbox}[1]{\red{\boxed{#1}}}
@@ -56,10 +61,8 @@
 }
 
 \usepackage{pifont}
-\usepackage{wasysym}
-
-\newcommand{\cmark}{\green{\ding{51}}}
-\newcommand{\xmark}{\red{\ding{55}}}
+% \newcommand{\cmark}{\green{\ding{51}}}
+% \newcommand{\xmark}{\red{\ding{55}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % for fig without caption: #1: width/size; #2: fig file
 \newcommand{\fignocaption}[2]{
@@ -69,7 +72,8 @@
   \end{figure}
 }
 
-\newcommand{\titletext}{Control Flow, Function, and Array}
+\newcommand{\titletext}{The Tromino Tiling Puzzle (I)}
+\newcommand{\subtitletext}{Pointers, (2D-)Arrays \textcolor{gray}{and Recursion}}
 
 \newcommand{\thankyou}{
   \begin{frame}[noframenumbering]{}

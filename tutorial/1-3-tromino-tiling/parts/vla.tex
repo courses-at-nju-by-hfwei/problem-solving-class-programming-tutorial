@@ -1,0 +1,27 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE VLAs}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+    int a[n];
+
+    int *pa = malloc( n * sizeof(int) );
+
+    int *pa = malloc( sizeof(int[n]) );
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+    int a[m][n];
+
+    int (*pa)[n] = malloc( sizeof(int[m][n]) );
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%

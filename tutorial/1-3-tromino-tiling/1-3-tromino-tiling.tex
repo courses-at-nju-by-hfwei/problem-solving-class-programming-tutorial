@@ -4,13 +4,12 @@
 
 %%%%%%%%%%
 \title[\titletext]{\titletext}
-\subtitle{}
+\subtitle{--- \subtitletext}
 
 \author[Hengfeng Wei]{\large 魏恒峰}
-% \titlegraphic{\includegraphics[height = 1.8cm]{figs/20171016-logic-qrcode.png}}
+% \titlegraphic{\includegraphics[height = 2.0cm]{figs/qrcode-programming-tutorial.png}}
 \institute{hfwei@nju.edu.cn}
-% from 2017年10月18日 
-\date{\zhtoday}
+\date{2017年11月03日}
 
 \AtBeginSection[]{
   \begin{frame}[noframenumbering, plain]
@@ -23,8 +22,15 @@
 
 \maketitle
 
-\input{sections/overview}
-\input{sections/io}
+\input{parts/overview}
+% \input{parts/1-2-review}
+\input{parts/memory}
+% \input{parts/recursion}
+% pointer-1d-array.tex, pointer-2d-array.tex
+\input{parts/pointers-arrays} 
+\input{parts/tiling-puzzle}
+\input{parts/solving-tiling}
+\thankyou{}
 
 \end{document}
 %%%%%%%%%%
