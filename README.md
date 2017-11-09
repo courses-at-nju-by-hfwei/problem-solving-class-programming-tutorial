@@ -6,3 +6,5 @@ See the code in [this repository](https://github.com/hengxin/learning-c-cplusplu
 
 TODO:
 - [ ] Overview of this class (separated from Lecture 1)
+- [ ] Guessing Game for the illustration of IO
+- [ ] Conway's Game of Life for the illustration 2D arrays

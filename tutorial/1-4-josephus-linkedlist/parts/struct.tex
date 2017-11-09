@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE Struct}
+
+  \vspace{0.6cm}
+  \centerline{\large \cyan{(\texttt{struct-point.c})}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  typdef struct _point {
+    int x;
+    int y;
+  } Point;
+  \end{lstlisting}
+
+  \pause
+  \begin{lstlisting}[style = Cstyle]
+  struct _point p1 = {1, 1};
+  p1.x = 11;
+
+  Point p2 = {.x = 2, .y = 2};
+
+  Point ps[5];
+
+  Point *p = &p2;
+  p->x = 22;
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  typdef struct _point {
+    char c;
+    int x;
+    int y;
+  } Point;
+  \end{lstlisting}
+
+  \begin{lstlisting}[style = Cstyle]
+  Point p = {.c = 'o', .x = 0, .y = 0};
+  sizeof(p);
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  typdef struct _point {
+    int x;
+    int y;
+  } Point;
+  \end{lstlisting}
+
+  \begin{lstlisting}[style = Cstyle]
+  void show(Point p);
+
+  void update(Point *p, int x, int y);
+  
+  Point add(Point p1, Point p2);
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  typdef struct _point {
+    int x;
+    int y;
+  } Point;
+  \end{lstlisting}
+
+  \begin{lstlisting}[style = Cstyle]
+  typedef struct _rect {
+    Point lup;
+    Point rlp;
+  } Rect;
+
+  Rect r;
+
+  r.lup.x = 1;
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
