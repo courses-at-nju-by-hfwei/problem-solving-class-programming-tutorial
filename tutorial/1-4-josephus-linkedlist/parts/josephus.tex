@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.50\textwidth}{figs/josephus.jpg}{\centerline{The Josephus Puzzle}}
+
+  \[
+    J(n) = \; ?
+  \]
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.45\textwidth}{figs/array}
+
+  \vspace{0.50cm}
+  \fignocaption{width = 0.50\textwidth}{figs/circular-linkedlist}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  struct _node {...};
+  struct _linkedlist {...};
+  \end{lstlisting}
+
+  \pause
+  \begin{lstlisting}[style = Cstyle]
+  scanf(''%d'', &n);
+
+  LinkedList list;
+  initialize_list(&list);
+
+  sit_in_circle(&list, n);
+
+  kill_until_one(&list);
+
+  show(&list);
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%

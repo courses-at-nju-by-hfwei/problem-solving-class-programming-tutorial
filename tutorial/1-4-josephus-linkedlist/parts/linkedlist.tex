@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE Linked List}
+
+  \vspace{0.6cm}
+  \centerline{\large \cyan{(\texttt{linkedlist.h \quad linkedlist-test.c})}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  typedef struct _node {
+    void *data;
+    struct _node *next;
+  } Node;
+  \end{lstlisting}
+
+  \begin{lstlisting}[style = Cstyle]
+  typedef struct _linkedlist {
+    Node *head;
+    Node *tail;
+  } LinkedList;
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  void initialize_list(LinkedList *list);
+
+  int is_empty(LinkedList *list);
+  int is_singleton(LinkedList *list);
+
+  void add_tail(LinkedList *list, void *data);
+
+  void delete_next(LinkedList *list, Node *pre);
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  void kill_until_one(LinkedList *list) {
+    Node *tmp = list->head;
+
+    while (! is_singleton(list)) {
+      delete_next(list, tmp);
+      tmp = tmp->next;
+    }
+  }
+  \end{lstlisting}
+
+  \vspace{0.60cm}
+  \centerline{\large \cyan{(\texttt{josephus-linkedlist.c})}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  void delete_node(LinkedList *list, Node *node);
+
+  void insert(LinkedList *list, Node *pre);
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%

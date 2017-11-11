@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE Function Pointer}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  int (*fptr)(int);  // fptr is a function pointer
+
+  int square(int num) {
+    return num * num;
+  }
+  \end{lstlisting}
+
+  \begin{lstlisting}[style = Cstyle]
+  int n = 5;
+  fptr = square;  // fptr points to a function
+  fptr(n);
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  typedef void (*fptr_show)(void *data);
+
+  void show(LinkedList *list, fptr_show show);
+  \end{lstlisting}
+
+  \centerline{\large \cyan{(\texttt{linkedlist.h})}}
+
+  \vspace{0.60cm}
+  \pause
+  \begin{lstlisting}[style = Cstyle]
+  void show_integer(const int *integer);
+
+  show(&list, show_integer);
+  \end{lstlisting}
+
+  \centerline{\large \cyan{(\texttt{josephus-linkedlist.c})}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  typedef int (*fptr_compare)(void *data1, void *data2);
+
+  Node *get_node(LinkedList *list, fptr_compare compare, void *data);
+  \end{lstlisting}
+
+  \centerline{\large \cyan{(\texttt{linkedlist.h})}}
+
+  \vspace{0.60cm}
+  \pause
+  \begin{lstlisting}[style = Cstyle]
+  int compare_integer(int *data1, int *data2);
+
+  get_node(&list, compare_integer, &val);
+  \end{lstlisting}
+
+  \centerline{\large \cyan{(\texttt{josephus-linkedlist.c})}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  void qsort (void *base, size_t num, size_t size,
+       int (*compar)(const void*, const void*));
+  \end{lstlisting}
+
+  \centerline{\large \cyan{(\texttt{\#include <stdlib.h>})}}
+\end{frame}
+%%%%%%%%%%%%%%%
