@@ -42,10 +42,12 @@
     showspaces = false,                
     showstringspaces = false,
     showtabs = false,                  
+    escapeinside = ||,
 }
 
 % colors
 \newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\redoverlay}[2]{\textcolor<#2>{red}{#1}}
 \newcommand{\green}[1]{\textcolor{green}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\cyan}[1]{\textcolor{cyan}{#1}}
@@ -74,8 +76,8 @@
   \end{figure}
 }
 
-\newcommand{\titletext}{The Josephus Puzzle Revisited}
-\newcommand{\subtitletext}{Struct, Linked List, and Function Pointer}
+\newcommand{\titletext}{Function Pointer and C Standard Library}
+\newcommand{\subtitletext}{}
 
 \newcommand{\thankyou}{
   \begin{frame}[noframenumbering]{}
