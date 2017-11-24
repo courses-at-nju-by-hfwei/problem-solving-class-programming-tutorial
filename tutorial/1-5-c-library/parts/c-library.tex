@@ -1,6 +1,9 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \centerline{\LARGE C Library}
+  \centerline{\LARGE C Standard Library}
+
+  \vspace{0.60cm}
+  \fignocaption{width = 0.30\textwidth}{figs/c-library-plauger}
 \end{frame}
 %%%%%%%%%%%%%%%
 
@@ -20,13 +23,19 @@
 \begin{frame}[fragile]{}
   \centerline{\large \cyan{(\texttt{\#include <assert.h>})}}
 
+  % |\uncover<2->{\blue{\#define NDEBUG}}|
+  % #include <assert.h>
   \vspace{0.50cm}
   \begin{lstlisting}[style = Cstyle]
-  |\uncover<2->{\red{\#define NDEBUG}}|
-  #include <assert.h>
+  scanf(''%d'', &n);
+  |\red{assert(n > 0)}|
+  \end{lstlisting}
 
+  \pause
+  \vspace{0.50cm}
+  \begin{lstlisting}[style = Cstyle]
   int *vals = malloc(sizeof(int) * n);
-  assert(vals != NULL)
+  |\red{assert(vals != NULL)}|
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
@@ -92,8 +101,66 @@
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
-\begin{frame}{}
+\begin{frame}[fragile]{}
   \centerline{\large \cyan{(\texttt{\#include <stdarg.h>})}}
+
+  \vspace{0.30cm}
+      \begin{lstlisting}[style = Cstyle]
+  int printf(const char *format, ...);
+
+  printf(''%d %c %s'', num, ch, str);
+      \end{lstlisting}
+
+  \vspace{0.30cm}
+  \begin{columns}
+    \column{0.45\textwidth}
+      \begin{enumerate}[(1)]
+        \item unnamed
+        \item \# unknown
+        \pause
+	\vspace{0.60cm}
+        \item ``$\cdots$'' must be at the end
+        \item $\ge 1$ named argument
+      \end{enumerate}
+    \pause
+    \column{0.45\textwidth}
+      \begin{center}
+	{\large
+	  va\_list \cyan{// type} \\[0.5cm]
+
+	  va\_start \\[0.10cm]
+	  va\_arg \\[0.10cm]
+	  va\_end
+	}
+      \end{center}
+  \end{columns}
+
+  \pause
+  \vspace{0.30cm}
+  \centerline{\large \teal{(\texttt{miniprintf.c})}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \centerline{\large \cyan{(\texttt{Command-line arguments})}}
+
+  \vspace{0.30cm}
+  \begin{lstlisting}[style = Cstyle]
+  int main(int argc, char *argv[]) {
+  }
+  \end{lstlisting}
+
+  \vspace{0.30cm}
+  \centerline{\texttt{argv[0]: program name}}
+
+  \pause
+  \vspace{0.30cm}
+  \centerline{\large \teal{(\texttt{add-cmdarg.c})}}
+
+  \pause
+  \vspace{0.60cm}
+  \centerline{\large \teal{(man \texttt{ls})}}
 \end{frame}
 %%%%%%%%%%%%%%%
 
@@ -101,14 +168,17 @@
 \begin{frame}[fragile]{}
   \centerline{\large \cyan{(\texttt{\#include <stddef.h>})}}
 
-  \centerline{\large \texttt{size\_t}}
+  \begin{lstlisting}[style = Cstyle]
+  typedef /*implementation-defined*/ size_t;
+  \end{lstlisting}
+
+  \pause
+  \vspace{0.30cm}
   \begin{lstlisting}[style = Cstyle]
   sizeof(int)
 
   void* malloc (size_t size);
   \end{lstlisting}
-
-  \centerline{\large \texttt{NULL}}
 \end{frame}
 %%%%%%%%%%%%%%%
 
@@ -124,10 +194,14 @@
     \texttt{getchar}\\[0.10cm]
     \texttt{putchar}\\[0.40cm]
 
-    \texttt{fopen}\\[0.10cm]
-    \texttt{fclose}\\[0.40cm]
+    \blue{
+      \texttt{fopen}\\[0.10cm]
+      \texttt{fclose}\\[0.40cm]
+    }
 
-    \texttt{EOF}\\[0.10cm]
+    \red{
+      \texttt{EOF}
+    }
     }
   \end{center}
 \end{frame}
@@ -149,34 +223,57 @@
     \texttt{free}\\[0.40cm]
 
     \texttt{bsearch}\\[0.10cm]
-    \texttt{qsort}\\[0.40cm]
+    \texttt{qsort}
     }
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
-\begin{frame}{}
+\begin{frame}[fragile]{}
   \centerline{\large \cyan{(\texttt{\#include <string.h>})}}
 
-  \begin{center}
-    {\large
-    \texttt{strncopy}\\[0.10cm]
-    \texttt{strncat}\\[0.10cm]
-    \texttt{strncmp}\\[0.40cm]
+  \vspace{0.50cm}
+  \begin{columns}
+    \column{0.65\textwidth}
+      \begin{lstlisting}[style = Cstyle]
+char book[] = ''The C Book'';
+char *pbook = ''The C Book'';
+      \end{lstlisting}
 
-    \texttt{strlen}\\[0.40cm]
+      \vspace{0.60cm}
+      \uncover<3->{
+	\centerline{\LARGE \red{`\char`\\0'}}
+      }
+      \uncover<4->{
+	\fignocaption{width = 0.30\textwidth}{figs/annoying}
+      }
+    \pause
+    \column{0.30\textwidth}
+      \begin{center}
+	{\large
+	\texttt{strncopy}\\[0.10cm]
+	\texttt{strncat}\\[0.10cm]
+	\texttt{strncmp}\\[0.40cm]
 
-    \texttt{strchr}\\[0.10cm]
-    \texttt{strrchr}\\[0.10cm]
-    \texttt{strstr}\\[0.40cm]
-    }
-  \end{center}
+	\texttt{strlen}\\[0.40cm]
+
+	\texttt{strchr}\\[0.10cm]
+	\texttt{strrchr}\\[0.10cm]
+	\texttt{strstr}\\[0.40cm]
+
+	\texttt{strtok}
+	}
+     \end{center}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \centerline{\large \cyan{(\texttt{\#include <time.h>})}}
+
+  \vspace{0.50cm}
+  \fignocaption{width = 0.30\textwidth}{figs/clock-8-35}
 \end{frame}
 %%%%%%%%%%%%%%%
