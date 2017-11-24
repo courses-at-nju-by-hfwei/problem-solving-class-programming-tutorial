@@ -1,0 +1,279 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE C Standard Library}
+
+  \vspace{0.60cm}
+  \fignocaption{width = 0.30\textwidth}{figs/c-library-plauger}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.50\textwidth}{figs/cplusplus-library}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.25\textwidth}{figs/c-library}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \centerline{\large \cyan{(\texttt{\#include <assert.h>})}}
+
+  % |\uncover<2->{\blue{\#define NDEBUG}}|
+  % #include <assert.h>
+  \vspace{0.50cm}
+  \begin{lstlisting}[style = Cstyle]
+  scanf(''%d'', &n);
+  |\red{assert(n > 0)}|
+  \end{lstlisting}
+
+  \pause
+  \vspace{0.50cm}
+  \begin{lstlisting}[style = Cstyle]
+  int *vals = malloc(sizeof(int) * n);
+  |\red{assert(vals != NULL)}|
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\large \cyan{(\texttt{\#include <ctype.h>})}}
+
+  \begin{center}
+    {\large
+    \texttt{isdigit}\\[0.10cm]
+    \texttt{isalpha}\\[0.10cm]
+    \texttt{isalnum}\\[0.40cm]
+
+    \texttt{islower}\\[0.10cm]
+    \texttt{isupper}\\[0.40cm]
+
+    \texttt{isspace}\\[0.40cm]
+
+    \texttt{tolower}\\[0.10cm]
+    \texttt{toupper}
+    }
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\large \cyan{(\texttt{\#include <limits.h>})}}
+
+  \begin{center}
+    {\large
+    \texttt{CHAR\_MIN}\\[0.10cm]
+    \texttt{CHAR\_MAX}\\[0.40cm]
+
+    \texttt{INT\_MIN}\\[0.10cm]
+    \texttt{INT\_MAX}
+    }
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\large \cyan{(\texttt{\#include <math.h>})}}
+
+  \begin{center}
+    {\large
+    \texttt{sin}\\[0.10cm]
+    \texttt{cos}\\[0.40cm]
+
+    \texttt{exp}\\[0.10cm]
+    \texttt{log}\\[0.40cm]
+
+    \texttt{pow}\\[0.10cm]
+    \texttt{sqrt}\\[0.40cm]
+
+    \texttt{ceil}\\[0.10cm]
+    \texttt{floor}\\[0.40cm]
+    }
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \centerline{\large \cyan{(\texttt{\#include <stdarg.h>})}}
+
+  \vspace{0.30cm}
+      \begin{lstlisting}[style = Cstyle]
+  int printf(const char *format, ...);
+
+  printf(''%d %c %s'', num, ch, str);
+      \end{lstlisting}
+
+  \vspace{0.30cm}
+  \begin{columns}
+    \column{0.45\textwidth}
+      \begin{enumerate}[(1)]
+        \item unnamed
+        \item \# unknown
+        \pause
+	\vspace{0.60cm}
+        \item ``$\cdots$'' must be at the end
+        \item $\ge 1$ named argument
+      \end{enumerate}
+    \pause
+    \column{0.45\textwidth}
+      \begin{center}
+	{\large
+	  va\_list \cyan{// type} \\[0.5cm]
+
+	  va\_start \\[0.10cm]
+	  va\_arg \\[0.10cm]
+	  va\_end
+	}
+      \end{center}
+  \end{columns}
+
+  \pause
+  \vspace{0.30cm}
+  \centerline{\large \teal{(\texttt{miniprintf.c})}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \centerline{\large \cyan{(\texttt{Command-line arguments})}}
+
+  \vspace{0.30cm}
+  \begin{lstlisting}[style = Cstyle]
+  int main(int argc, char *argv[]) {
+  }
+  \end{lstlisting}
+
+  \vspace{0.30cm}
+  \centerline{\texttt{argv[0]: program name}}
+
+  \pause
+  \vspace{0.30cm}
+  \centerline{\large \teal{(\texttt{add-cmdarg.c})}}
+
+  \pause
+  \vspace{0.60cm}
+  \centerline{\large \teal{(man \texttt{ls})}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \centerline{\large \cyan{(\texttt{\#include <stddef.h>})}}
+
+  \begin{lstlisting}[style = Cstyle]
+  typedef /*implementation-defined*/ size_t;
+  \end{lstlisting}
+
+  \pause
+  \vspace{0.30cm}
+  \begin{lstlisting}[style = Cstyle]
+  sizeof(int)
+
+  void* malloc (size_t size);
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\large \cyan{(\texttt{\#include <stdio.h>})}}
+
+  \begin{center}
+    {\large
+    \texttt{scanf}\\[0.10cm]
+    \texttt{printf}\\[0.40cm]
+
+    \texttt{getchar}\\[0.10cm]
+    \texttt{putchar}\\[0.40cm]
+
+    \blue{
+      \texttt{fopen}\\[0.10cm]
+      \texttt{fclose}\\[0.40cm]
+    }
+
+    \red{
+      \texttt{EOF}
+    }
+    }
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\large \cyan{(\texttt{\#include <stdlib.h>})}}
+
+  \begin{center}
+    {\large
+    \texttt{atoi}\\[0.10cm]
+    \texttt{atof}\\[0.40cm]
+
+    \texttt{srand}\\[0.10cm]
+    \texttt{rand}\\[0.40cm]
+
+    \texttt{malloc}\\[0.10cm]
+    \texttt{free}\\[0.40cm]
+
+    \texttt{bsearch}\\[0.10cm]
+    \texttt{qsort}
+    }
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \centerline{\large \cyan{(\texttt{\#include <string.h>})}}
+
+  \vspace{0.50cm}
+  \begin{columns}
+    \column{0.65\textwidth}
+      \begin{lstlisting}[style = Cstyle]
+char book[] = ''The C Book'';
+char *pbook = ''The C Book'';
+      \end{lstlisting}
+
+      \vspace{0.60cm}
+      \uncover<3->{
+	\centerline{\LARGE \red{`\char`\\0'}}
+      }
+      \uncover<4->{
+	\fignocaption{width = 0.30\textwidth}{figs/annoying}
+      }
+    \pause
+    \column{0.30\textwidth}
+      \begin{center}
+	{\large
+	\texttt{strncopy}\\[0.10cm]
+	\texttt{strncat}\\[0.10cm]
+	\texttt{strncmp}\\[0.40cm]
+
+	\texttt{strlen}\\[0.40cm]
+
+	\texttt{strchr}\\[0.10cm]
+	\texttt{strrchr}\\[0.10cm]
+	\texttt{strstr}\\[0.40cm]
+
+	\texttt{strtok}
+	}
+     \end{center}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\large \cyan{(\texttt{\#include <time.h>})}}
+
+  \vspace{0.50cm}
+  \fignocaption{width = 0.30\textwidth}{figs/clock-8-35}
+\end{frame}
+%%%%%%%%%%%%%%%

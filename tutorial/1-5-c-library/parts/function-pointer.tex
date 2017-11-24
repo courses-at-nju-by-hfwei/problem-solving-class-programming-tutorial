@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE Function Pointer}
+
+  \vspace{0.60cm}
+  \fignocaption{width = 0.60\textwidth}{figs/function-pointer}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\Large Sort \only<3->{\blue{\LARGE for any types}}}
+
+  \pause
+  \vspace{0.30cm}
+  \centerline{\large \textsc{\redoverlay{Compare}{5-}} \& \textsc{Swap}}
+
+  \uncover<4->{
+    \begin{center}
+      sort\_ints\\[0.30cm]
+      sort\_floats\\[0.30cm]
+      sort\_strings\\[0.30cm]
+      sort\_persons\\[0.30cm]
+      $\cdots$
+    \end{center}
+  }
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \centerline{\large \cyan{(\texttt{\#include <stdlib.h>})}}
+
+  \vspace{0.30cm}
+  \begin{lstlisting}[style = Cstyle]
+  void qsort (void *base, size_t num, size_t size,
+       int |\red{(*compar)}|(const void*, const void*));
+  \end{lstlisting}
+
+  \pause
+  \vspace{0.30cm}
+  \centerline{\large \teal{(\texttt{compare.c})}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  int (*fptr)(int);  // fptr is a function pointer
+
+  int square(int num) {
+    return num * num;
+  }
+  \end{lstlisting}
+
+  \pause
+  \vspace{0.30cm}
+  \begin{lstlisting}[style = Cstyle]
+  int n = 5;
+  fptr = square;  // fptr points to a function
+  fptr(n);        // call ''square''
+  \end{lstlisting}
+
+  \pause
+  \vspace{0.30cm}
+  \centerline{\large \teal{(\texttt{fptr-square.c})}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = Cstyle]
+  typedef int (*predicate)(int n);	// type!
+  \end{lstlisting}
+
+  \pause
+  \fignocaption{width = 0.20\textwidth}{figs/data-filter}
+
+  \begin{lstlisting}[style = Cstyle]
+  void filter(int *vals, int n, predicate cond);
+  \end{lstlisting}
+
+  \pause
+  \vspace{0.30cm}
+  \centerline{\large \teal{(\texttt{filter-fp.c})}}
+
+\end{frame}
+%%%%%%%%%%%%%%%
